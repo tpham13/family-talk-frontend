@@ -1,22 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateLoginForm } from '../actions/loginForm.js'
+import { updateLoginForm } from '../actions/loginForm.js';
+import { login } from '../actions/currentUser.js'
 
-const Login = ({ loginForm, updateLoginForm }) => {
+const Login = ({ loginFormData, updateLoginForm, login }) => {
     
-        const handleInputChange = event => {
-            const { name, value } = event.target
-            const updatedFormInfo = {
-                ...loginForm,
-                [name]: value
-            }
-            updateLoginForm(updatedFormInfo)
+    const handleInputChange = event => {
+        const { name, value } = event.target
+        const updatedFormInfo = {
+            ...loginFormData,
+            [name]: value
         }
+        updateLoginForm(updatedFormInfo)
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        login(loginFormData)
+    }
+
     
     return (
-        <form onSubmit={undefined}>
-            <input placeholder="username" value={loginForm.username} name="username" type="text" onChange={handleInputChange} />
-            <input placeholder="password" value={loginForm.password} name="password" type="text" onChange={handleInputChange} />
+        <form onSubmit={handleSubmit}>
+            <input placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
+            <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
             <input type="submit" value="Log In" />
         </form>
 
@@ -36,10 +43,10 @@ const Login = ({ loginForm, updateLoginForm }) => {
 */
 const mapStateToProps = state => {
     return {
-        loginForm: state.loginForm
+        loginFormData: state.loginForm
     }
 }
 
 // connect is a function that take up to 4 arguments and return a function that take a component and return the component
 
-export default connect(mapStateToProps, { updateLoginForm } )(Login)
+export default connect(mapStateToProps, { updateLoginForm , login})(Login)
