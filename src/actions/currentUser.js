@@ -21,5 +21,45 @@ export const login = credentials => {
             }, 
             body: JSON.stringify(credentials)
         })
+        // what tool do we need to dispatch?
+            .then(r => r.json())
+            .then( user => {
+                if (user.error) {
+                    alert(user.error)
+                }else{
+                    // note* that dispatch is a function from redux that comes in as an argument
+                    // setCurrentUser is an action
+                    dispatch(setCurrentUser(user))
+                }
+            }
+                
+            )
+            .catch(console.log)
+    }
+}
+
+    
+export const getCurrentUser = credentials => {
+    return dispatch => {
+        return fetch("http://localhost:3000/api/v1/get_current_user", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+        })
+        // what tool do we need to dispatch?
+            .then(r => r.json())
+            .then( user => {
+                if (user.error) {
+                    alert(user.error)
+                }else{
+                    // note* that dispatch is a function from redux that comes in as an argument
+                    // setCurrentUser is an action
+                    dispatch(setCurrentUser(user))
+                }
+            }
+                
+            )
+            .catch(console.log)
     }
 }
