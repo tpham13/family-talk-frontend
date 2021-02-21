@@ -12,9 +12,10 @@ export const setCurrentUser = user => {
 
 // asynchronous action creators, this return a function, this function receive a dispatch 
 export const login = credentials => {
-    console.log("credentials are", credentials)
+    // console.log("credentials are", credentials)
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/login", {
+            credentials: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,28 +40,23 @@ export const login = credentials => {
 }
 
     
-export const getCurrentUser = credentials => {
+export const getCurrentUser = () => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/get_current_user", {
-            credentials: "include",
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }, 
+      return fetch("http://localhost:3000/api/v1/get_current_user", {
+        credentials: "include",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      })
+        .then(r => r.json())
+        .then(response => {
+          if (response.error) {
+            alert(response.error)
+          } else {
+            dispatch(setCurrentUser(response.data))
+          }
         })
-        // what tool do we need to dispatch?
-            .then(r => r.json())
-            .then( user => {
-                if (user.error) {
-                    alert(user.error)
-                }else{
-                    // note* that dispatch is a function from redux that comes in as an argument
-                    // setCurrentUser is an action
-                    dispatch(setCurrentUser(user))
-                }
-            }
-                
-            )
-            .catch(console.log)
+        .catch(console.log)
     }
-}
+  }
