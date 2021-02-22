@@ -10,7 +10,7 @@ export const setCurrentUser = user => {
     }
 }
 
-// asynchronous action creators, this return a function, this function receive a dispatch 
+// asynchronous action creators, this return a function (data structure), this function receive a dispatch 
 export const login = credentials => {
     // console.log("credentials are", credentials)
     return dispatch => {
@@ -39,7 +39,22 @@ export const login = credentials => {
     }
 }
 
-
+export const clearCurrentUser => {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
+// asychronous action creator, this return a function(data structure), this function receive a dispatch
+export const logout = () => {
+    return (dispatch) => {
+        dispatch(clearCurrentUser())
+        return fetch('http://localhost:3000/api/v1/logout', {
+            // send the credentials back (THAT SEND THE COOKIES BACK) to clear
+            credentials: "include",
+            method: "DELETE"
+        })
+    }
+}
 export const getCurrentUser = () => {
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/get_current_user", {
