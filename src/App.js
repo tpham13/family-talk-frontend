@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
 import './App.css';
-import MainContainer from './components/MainContainer.js'
+import Login from './components/Login.js';
+import Logout from './components/Logout.js';
+import Posts from './components/Posts.js';
+import  { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -13,10 +16,17 @@ class App extends React.Component {
 
   render(){
     return ( 
+      <Router>
       <div className="App">
       <NavBar />
-      <MainContainer />
+      
+        
+        <Route exact path='/login' component={Login}/>
+        <Route exact path='/posts' component={Posts}/>
+        
+      
       </div>
+      </Router>
     );
   }
 }
