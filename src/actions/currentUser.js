@@ -1,3 +1,5 @@
+import { resetLoginForm } from "./loginForm.js";
+
 /* setCurrentUser is a function that takes a user as an object and 
 return to me a type (that match the reducer) and  key payload (user->incoming object)
 */
@@ -18,31 +20,26 @@ export const clearCurrentUser = () => {
 
 // asynchronous action creators, this return a function (data structure), this function receive a dispatch 
 export const login = credentials => {
-    // console.log("credentials are", credentials)
-    return dispatch => {
-        return fetch("http://localhost:3000/api/v1/login", {
-            credentials: "include",
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            }, 
-            body: JSON.stringify(credentials)
-        })
-        // what tool do we need to dispatch?
-            .then(r => r.json())
-            .then( user => {
-                if (user.error) {
-                    alert(user.error)
-                }else{
-                    // note* that dispatch is a function from redux that comes in as an argument
-                    // setCurrentUser is an action
-                    dispatch(setCurrentUser(user))
-                }
-            }
-                
-            )
-            .catch(console.log)
-    }
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/login", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(credentials)
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(setCurrentUser(response.data))
+          dispatch(resetLoginForm())
+        }
+      })
+      .catch(console.log)
+  }
 }
 
 
@@ -72,6 +69,7 @@ export const getCurrentUser = () => {
             alert(response.error)
           } else {
             dispatch(setCurrentUser(response.data))
+            
           }
         })
         .catch(console.log)
