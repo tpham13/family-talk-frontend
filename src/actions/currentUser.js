@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js";
+import { getPosts } from "./posts"
 
 /* setCurrentUser is a function that takes a user as an object and 
 return to me a type (that match the reducer) and  key payload (user->incoming object)
@@ -35,6 +36,7 @@ export const login = credentials => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
+          dispatch(getPosts())
           dispatch(resetLoginForm())
         }
       })
@@ -69,6 +71,7 @@ export const getCurrentUser = () => {
             alert(response.error)
           } else {
             dispatch(setCurrentUser(response.data))
+            dispatch(getPosts())
             
           }
         })
