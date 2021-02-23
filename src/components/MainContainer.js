@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Posts from './Posts.js'
 const MainContainer = () => {
     return (
         <div className="MainContainer">
-            I am main container
+            <Posts />
         </div>
     )
 }
