@@ -4,7 +4,7 @@ import posts from '../reducers/posts';
 
 const PostCard = ({post}) => {
     return (
-        <p>{post.attributes.content} shared by {post.attributes.user.name}</p>
+        <p className="PostCard">{post.attributes.content} shared by {post.attributes.user.name}</p>
     )
 }
 
