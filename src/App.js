@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js'
-import NavBar from './components/NavBar.js'
+// import NavBar from './components/NavBar.js'
 import './App.css';
 import Login from './components/Login.js';
-import Logout from './components/Logout.js';
 import Signup from './components/Signup.js';
 import Posts from './components/Posts.js';
-import  { BrowserRouter as Router, Route } from 'react-router-dom'
+import Home from './components/Home.js';
+import  { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -16,18 +16,21 @@ class App extends React.Component {
   }
 
   render(){
+    const { loggedIn } = this.props
     return ( 
       <Router>
       <div className="App">
-      <NavBar />
+      <Switch>
+      {/* render can take a function */}
       
-        
         <Route exact path='/login' component={Login}/>
         <Route exact path='/signup' component={Signup}/>
+        <Route exact path='/' render={() => loggedIn ? <Posts /> : <Home />}/>
         <Route exact path='/posts' component={Posts}/>
         
-      
+      </Switch>
       </div>
+      
       </Router>
     );
   }
@@ -40,9 +43,10 @@ state = {...,
 }
 */
 
-const mapStateToProps = ({currentUser}) => {
+const mapStateToProps = state => {
   return ({
-    currentUser
+    // manipulate redux state and only grab what we need: is the user logged in or not
+    loggedIn: !!state.currentUser
   })
 }
   
