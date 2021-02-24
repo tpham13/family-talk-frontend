@@ -4,12 +4,14 @@ import thunk  from 'redux-thunk';
 import users from './reducers/users.js';
 import currentUser from './reducers/currentUser';
 import loginForm from './reducers/loginForm';
+import signupForm from './reducers/signupForm';
 import posts from './reducers/posts'
 
 const reducer = combineReducers({
     users,
     currentUser,
     loginForm,
+    signupForm,
     posts
   })
   

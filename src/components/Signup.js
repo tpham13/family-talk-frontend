@@ -3,28 +3,41 @@ import { connect } from 'react-redux';
 import { updateSignupForm } from '../actions/signupForm.js';
 import { signup } from '../actions/currentUser.js'
 
-const Signup = ({ signupFormData, updatesignupForm, signup }) => {
+const Signup = ({ signupFormData, updateSignupForm, signup }) => {
     
-    const handleInputChange = event => {
+    const handleInputUserChange = event => {
         const { name, value } = event.target
         const updatedFormInfo = {
             ...signupFormData,
-            [name]: value
+            [name]: value,
         }
         updateSignupForm(updatedFormInfo)
-    }
+    };
+
+    const handleInputGroupChange = event => {
+        const { name, value } = event.target
+        const updatedFormInfo = {
+            ...signupFormData,
+            group: {
+                ...signupFormData.group,
+                [name]: value
+            }
+        }
+        updateSignupForm(updatedFormInfo)
+    };
 
     const handleSubmit = event => {
         event.preventDefault()
-        login(signupFormData)
+        signup(signupFormData)
     }
 
     // have to include a dropdown to choose a group that user will belong to here: 
     return (
         <form onSubmit={handleSubmit}>
-            <input placeholder="name" value={signupFormData.username} name="name" type="text" onChange={handleInputChange} />
-            <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleInputChange} />
-            <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleInputChange} />
+            <input placeholder="name" value={signupFormData.name} name="name" type="text" onChange={handleInputUserChange} />
+            <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleInputUserChange} />
+            <input placeholder="group" value={signupFormData.group.name} name="name" type="text" onChange={handleInputGroupChange} />
+            <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleInputUserChange} />
             <input type="submit" value="Signup" />
         </form>
 
@@ -50,4 +63,4 @@ const mapStateToProps = state => {
 
 // connect is a function that take up to 4 arguments and return a function that take a component and return the component
 
-export default connect(mapStateToProps, { updateSignupForm , signup })(Signup)
+export default connect(mapStateToProps, { updateSignupForm, signup })(Signup)

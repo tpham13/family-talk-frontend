@@ -5,6 +5,7 @@ import NavBar from './components/NavBar.js'
 import './App.css';
 import Login from './components/Login.js';
 import Logout from './components/Logout.js';
+import Signup from './components/Signup.js';
 import Posts from './components/Posts.js';
 import  { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -22,6 +23,7 @@ class App extends React.Component {
       
         
         <Route exact path='/login' component={Login}/>
+        <Route exact path='/signup' component={Signup}/>
         <Route exact path='/posts' component={Posts}/>
         
       
