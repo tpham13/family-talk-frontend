@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js";
+import { resetSignupForm } from "./signupForm.js";
 import { getPosts } from "./posts"
 
 /* setCurrentUser is a function that takes a user as an object and 
@@ -64,7 +65,7 @@ export const signup = credentials => {
         } else {
           dispatch(setCurrentUser(response.data))
           dispatch(getPosts())
-          dispatch(resetLoginForm())
+          dispatch(resetSignupForm())
         }
       })
       .catch(console.log)
