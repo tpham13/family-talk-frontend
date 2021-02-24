@@ -1,5 +1,4 @@
 import React from 'react';
-import posts from '../reducers/posts';
 
 
 const PostCard = ({post}) => {

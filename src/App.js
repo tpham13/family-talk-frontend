@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js'
-// import NavBar from './components/NavBar.js'
+import NavBar from './components/NavBar.js'
 import './App.css';
 import Login from './components/Login.js';
+import Logout from './components/Logout.js';
 import Signup from './components/Signup.js';
 import Posts from './components/Posts.js';
 import Home from './components/Home.js';
-import  { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import MainContainer from './components/MainContainer'
+import  { Route, Switch, withRouter } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -18,20 +20,20 @@ class App extends React.Component {
   render(){
     const { loggedIn } = this.props
     return ( 
-      <Router>
-      <div className="App">
-      <Switch>
-      {/* render can take a function */}
       
+      <div className="App">
+      <NavBar />
+      {/* render can take a function */}
+      { loggedIn ? <Logout /> : null} 
         <Route exact path='/login' component={Login}/>
-        <Route exact path='/signup' component={Signup}/>
-        <Route exact path='/' render={() => loggedIn ? <Posts /> : <Home />}/>
+        <Route exact path='/posts' component={Posts}/>
+        <Route exact path='/signup' render={() =><Signup/>}/>
+        <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/>
         <Route exact path='/posts' component={Posts}/>
         
-      </Switch>
       </div>
       
-      </Router>
+      
     );
   }
 }
@@ -46,7 +48,8 @@ state = {...,
 const mapStateToProps = state => {
   return ({
     // manipulate redux state and only grab what we need: is the user logged in or not
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    posts: state.posts
   })
 }
   
