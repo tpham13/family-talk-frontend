@@ -23,13 +23,13 @@ class App extends React.Component {
     return ( 
       
       <div className="App">
-      <NavBar />
+      { loggedIn ? <NavBar /> : <Home /> }
       {/* render can take a function */}
       <Switch>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/posts' component={Posts}/>
         <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
-        <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/>
+        {/* <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/> */}
         <Route exact path='/posts' component={Posts}/>
         <Route exact path='/posts/new' component={NewPostForm} />
       </Switch>  
