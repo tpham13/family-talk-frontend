@@ -1,6 +1,7 @@
 import { resetLoginForm } from "./loginForm.js";
 import { resetSignupForm } from "./signupForm.js";
 import { getPosts } from "./posts"
+import { clearPosts } from "./posts"
 
 /* setCurrentUser is a function that takes a user as an object and 
 return to me a type (that match the reducer) and  key payload (user->incoming object)
@@ -77,11 +78,13 @@ export const signup = (credentials, history) => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
+        dispatch(clearPosts())
         return fetch('http://localhost:3000/api/v1/logout', {
             // send the credentials back (THAT SEND THE COOKIES BACK) to clear
             credentials: "include",
             method: "DELETE"
         })
+          
     }
 }
 export const getCurrentUser = () => {

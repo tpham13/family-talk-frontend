@@ -5,6 +5,12 @@ export const setPosts = posts => {
     }
 }
 
+export const clearPosts = () => {
+  return {
+    type: "CLEAR_POSTS"
+  }
+}
+
 export const getPosts = () => {
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/posts", {

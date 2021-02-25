@@ -8,8 +8,9 @@ import Logout from './components/Logout.js';
 import Signup from './components/Signup.js';
 import Posts from './components/Posts.js';
 import Home from './components/Home.js';
+import NewPostForm from './components/NewPostForm.js';
 // import MainContainer from './components/MainContainer'
-import  { Route } from 'react-router-dom'
+import  { Route, Switch } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -24,13 +25,14 @@ class App extends React.Component {
       <div className="App">
       <NavBar />
       {/* render can take a function */}
-      { loggedIn ? <Logout /> : null} 
+      <Switch>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/posts' component={Posts}/>
         <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
         <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/>
         <Route exact path='/posts' component={Posts}/>
-        
+        <Route exact path='/posts/new' component={NewPostForm} />
+      </Switch>  
       </div>
       
       
