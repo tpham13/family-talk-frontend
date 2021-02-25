@@ -76,6 +76,7 @@ export const signup = (credentials, history) => {
 }
 // asychronous action creator, this return a function(data structure), this function receive a dispatch
 export const logout = () => {
+  
     return dispatch => {
         dispatch(clearCurrentUser())
         dispatch(clearPosts())
