@@ -4,8 +4,11 @@ import PostCard from './PostCard.js'
 import { connect } from 'react-redux';
 
 // Posts is expected to render a bunch of posts
+
 const Posts = props => {
-    const postCards = props.posts.map(p => <PostCard post={p} key={p.id}  />);
+     
+    const postCards = props.posts.length > 0 ?
+        props.posts.map(p => <PostCard post={p} key={p.id} />) : null
     return (
          postCards
     )

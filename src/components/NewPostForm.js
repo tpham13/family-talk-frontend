@@ -1,5 +1,5 @@
 import React from 'react';
-// 1. First grab the aciton creator
+// 1. First grab the action creator
 import {updateNewPostForm} from '../actions/newPostForm.js'
 import { connect } from 'react-redux'
 import { createPost } from '../actions/posts.js'
@@ -7,7 +7,8 @@ import { createPost } from '../actions/posts.js'
 /* 3. This means Redux gives us back a prop called updateNewPostForm
 which when invoked, actually Redux will now dispatch
 */ 
-const NewPostForm = ({formData, updateNewPostForm, createPost, userId}) => { 
+// this is a functional component
+const NewPostForm = ({formData, updateNewPostForm, createPost, userId, history}) => { 
     const { content } = formData
     const handleChange = event => {
         console.log("trigger handleChange")
@@ -27,7 +28,8 @@ const NewPostForm = ({formData, updateNewPostForm, createPost, userId}) => {
         createPost({
             ...formData,
             userId
-        })
+        }, 
+        history)
 
     }
     
