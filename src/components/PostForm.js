@@ -1,14 +1,14 @@
 import React from 'react';
 // 1. First grab the action creator
-import {updateNewPostForm} from '../actions/newPostForm.js'
+import {updatePostForm} from '../actions/newPostForm.js'
 import { connect } from 'react-redux'
 import { createPost } from '../actions/posts.js'
 
-/* 3. This means Redux gives us back a prop called updateNewPostForm
+/* 3. This means Redux gives us back a prop called updatePostForm
 which when invoked, actually Redux will now dispatch
 */ 
 // this is a functional component
-const NewPostForm = ({formData, updateNewPostForm, createPost, userId, history}) => { 
+const PostForm = ({formData, updatePostForm, createPost, userId, history}) => { 
     const { content } = formData
     const handleChange = event => {
         console.log("trigger handleChange")
@@ -17,9 +17,9 @@ const NewPostForm = ({formData, updateNewPostForm, createPost, userId, history})
          it's not Redux dispatching the action built by the actions creator
          with the appropriate arguments
          */ 
-        // updateNewPostForm represent the ACTION CREATOR
+        // updatePostForm represent the ACTION CREATOR
         
-        updateNewPostForm(name, value)
+        updatePostForm(name, value)
         
     }
 
@@ -62,5 +62,5 @@ const mapStateToProps = state => {
 /* 2. Pass the action creator to redux's connect function
  using either mapDispatchToProps or the shorthand object syntax seen below
 */
-//  dispatch is happening here, use short hand and insert {updateNewPostForm} to connect function
-export default connect(mapStateToProps, { updateNewPostForm, createPost }) (NewPostForm); 
+//  dispatch is happening here, use short hand and insert {updatePostForm} to connect function
+export default connect(mapStateToProps, { updatePostForm, createPost }) (PostForm); 

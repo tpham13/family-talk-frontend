@@ -8,7 +8,7 @@ import Logout from './components/Logout.js';
 import Signup from './components/Signup.js';
 import Posts from './components/Posts.js';
 import Home from './components/Home.js';
-import NewPostForm from './components/NewPostForm.js';
+import PostForm from './components/PostForm.js';
 import PostCard from './components/PostCard.js';
 // import MainContainer from './components/MainContainer'
 import  { Route, Switch } from 'react-router-dom'
@@ -32,7 +32,7 @@ class App extends React.Component {
         <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
         {/* <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/> */}
         <Route exact path='/posts' component={Posts}/>
-        <Route exact path='/posts/new' component={NewPostForm} />
+        <Route exact path='/posts/new' component={PostForm} />
         <Route exact path='/posts/:id' render={props => {
           const post = posts.find(post => post.id === props.match.params.id)
           console.log(post)
@@ -42,7 +42,7 @@ class App extends React.Component {
         <Route exact path='/posts/:id/:edit' render={props => {
           const post = posts.find(post => post.id === props.match.params.id)
           console.log(post)
-          return <NewPostForm post={post} {...props}/>
+          return <PostForm post={post} {...props}/>
         }
         }/>
       </Switch>  

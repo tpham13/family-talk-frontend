@@ -1,6 +1,6 @@
 // synchronouse actions 
 
-export const updateNewPostForm = (name, value) => {
+export const updatePostForm = (name, value) => {
     // console.log(name, value)
     const formData = { name, value }
     console.log(formData)
@@ -11,7 +11,7 @@ export const updateNewPostForm = (name, value) => {
     }
 }
 
-export const resetNewPostForm = (name, value) => {
+export const resetPostForm = (name, value) => {
     // console.log(name, value)
     const formData = { name, value }
     console.log(formData)

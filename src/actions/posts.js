@@ -1,4 +1,4 @@
-import { resetNewPostForm } from './newPostForm'; 
+import { resetPostForm } from './newPostForm'; 
 
 export const setPosts = posts => {
     return {
@@ -71,7 +71,7 @@ export const createPost = (postData, history) => {
           THEN when I export default posts reducer to my store.js, I add posts which is an array
           */
           dispatch(addPost(response.data))
-          dispatch(resetNewPostForm())
+          dispatch(resetPostForm())
           history.push(`/posts/${response.data.id}`)
         }
       })

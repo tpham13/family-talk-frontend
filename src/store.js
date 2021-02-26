@@ -6,7 +6,7 @@ import currentUser from './reducers/currentUser';
 import loginForm from './reducers/loginForm';
 import signupForm from './reducers/signupForm';
 import posts from './reducers/posts';
-import newPostForm from './reducers/newPostForm'
+import newPostForm from './reducers/newPostForm.js'
 
 const reducer = combineReducers({
     users,
