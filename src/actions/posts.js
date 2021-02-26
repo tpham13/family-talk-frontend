@@ -1,4 +1,4 @@
-import { resetPostForm } from './newPostForm'; 
+import { resetPostForm } from './postForm'; 
 
 export const setPosts = posts => {
     return {

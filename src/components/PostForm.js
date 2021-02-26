@@ -1,6 +1,6 @@
 import React from 'react';
 // 1. First grab the action creator
-import {updatePostForm} from '../actions/newPostForm.js'
+import {updatePostForm} from '../actions/postForm.js'
 import { connect } from 'react-redux'
 import { createPost } from '../actions/posts.js'
 
@@ -55,7 +55,7 @@ const PostForm = ({formData, updatePostForm, createPost, userId, history}) => {
 const mapStateToProps = state => {
     const userId = state.currentUser ? state.currentUser.id : ""
     return {
-        formData: state.newPostForm,
+        formData: state.postForm,
         userId
     }
 }
