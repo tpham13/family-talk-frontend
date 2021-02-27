@@ -2,16 +2,15 @@ import React from 'react';
 // 1. First grab the action creator
 import {updatePostForm} from '../actions/postForm.js'
 import { connect } from 'react-redux'
-import { createPost } from '../actions/posts.js'
 
 /* 3. This means Redux gives us back a prop called updatePostForm
 which when invoked, actually Redux will now dispatch
 */ 
 // this is a functional component
-const PostForm = ({formData, updatePostForm, createPost, userId, history}) => { 
+const PostForm = ({ formData, history, updatePostForm, userId, post, handleSubmit }) => { 
     const { content } = formData
     const handleChange = event => {
-        console.log("trigger handleChange")
+        // console.log("trigger handleChange")
         const { name, value } = event.target
         /* 4. This is not an invocation of just the action creator,
          it's not Redux dispatching the action built by the actions creator
@@ -23,32 +22,26 @@ const PostForm = ({formData, updatePostForm, createPost, userId, history}) => {
         
     }
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        createPost({
-            ...formData,
-            userId
-        }, 
-        history)
-
-    }
-    
-
     return (
-    <form onSubmit={handleSubmit}>
-        <input 
-            placeholder="What's on your mind today..."
-            name="content"
-            onChange={handleChange}
-            value={content}
-        />
-        <br/>
-        <input
-            type="submit"
-            value="Create Post"
-        />
+        <div>
+        <form onSubmit={event => {
+            console.log('postform here');
+            handleSubmit(event, formData, userId, history)
+            }}>
+            <input 
+                placeholder="What's on your mind today..."
+                name="content"
+                onChange={handleChange}
+                value={content}
+            />
+            <br/>
+            <input
+                type="submit"
+                value="Create Post"
+            />
 
-    </form>
+        </form>
+        </div>
     )
 }
 
@@ -63,4 +56,4 @@ const mapStateToProps = state => {
  using either mapDispatchToProps or the shorthand object syntax seen below
 */
 //  dispatch is happening here, use short hand and insert {updatePostForm} to connect function
-export default connect(mapStateToProps, { updatePostForm, createPost }) (PostForm); 
+export default connect(mapStateToProps, { updatePostForm }) (PostForm); 

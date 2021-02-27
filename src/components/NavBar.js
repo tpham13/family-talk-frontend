@@ -10,7 +10,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
         <div className="NavBar">
             <NavLink exact  activeClassName="active" to="/posts">My posts |   </NavLink>
             <NavLink exact activeClassName="active"  to="/posts/new">New post |  </NavLink>
-            { loggedIn ? <><p id="loggedin">Welcome, {currentUser.attributes.name} from {currentUser.attributes.group.name} family!</p><Logout /></> : null } 
+            { loggedIn ? <><h3 id="loggedin">Welcome, {currentUser.attributes.name} from {currentUser.attributes.group.name} family!</h3><Logout /></> : null } 
             {/* { currentUser ? <strong> Welcome, {currentUser.attributes.name} from {currentUser.attributes.group.name} family!</strong> : ""} */}
         </div>
     )

@@ -4,14 +4,16 @@ import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
 import './App.css';
 import Login from './components/Login.js';
-import Logout from './components/Logout.js';
+// import Logout from './components/Logout.js';
 import Signup from './components/Signup.js';
 import Posts from './components/Posts.js';
 import Home from './components/Home.js';
 import PostForm from './components/PostForm.js';
-import PostCard from './components/PostCard.js';
 // import MainContainer from './components/MainContainer'
-import  { Route, Switch } from 'react-router-dom'
+import  { Route, Switch } from 'react-router-dom';
+import { setFormDataforEdit } from './actions/postForm'
+import NewPostFormWrapper from './components/NewPostFormWrapper.js'
+import PostCard from './components/PostCard.js'
 
 class App extends React.Component {
 
@@ -20,7 +22,7 @@ class App extends React.Component {
   }
 
   render(){
-    const { loggedIn, posts } = this.props
+    const { loggedIn, posts, setFormDataforEdit } = this.props
     return ( 
       
       <div className="App">
@@ -32,16 +34,15 @@ class App extends React.Component {
         <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
         {/* <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/> */}
         <Route exact path='/posts' component={Posts}/>
-        <Route exact path='/posts/new' component={PostForm} />
+        <Route exact path='/posts/new' component={NewPostFormWrapper}/>
         <Route exact path='/posts/:id' render={props => {
           const post = posts.find(post => post.id === props.match.params.id)
-          console.log(post)
+          // console.log(post)
           return <PostCard post={post} {...props}/>
         }
         }/>
         <Route exact path='/posts/:id/:edit' render={props => {
           const post = posts.find(post => post.id === props.match.params.id)
-          console.log(post)
           return <PostForm post={post} {...props}/>
         }
         }/>
@@ -71,4 +72,4 @@ const mapStateToProps = state => {
 
 
 // {getCurrentUser} here is using mapDispatchToProps
-export default connect (mapStateToProps, {getCurrentUser } ) (App);
+export default connect (mapStateToProps, {getCurrentUser, setFormDataforEdit } ) (App);

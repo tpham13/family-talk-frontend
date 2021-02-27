@@ -15,6 +15,8 @@ export default (state = initialState, action) => {
             return returnVal
         case "RESET_NEW_POST_FORM":
             return initialState
+        case  "SET_FORM_DATA_FOR_EDIT":
+            return action.postFormData
             default: 
                 return state 
     }

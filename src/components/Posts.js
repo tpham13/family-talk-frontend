@@ -8,9 +8,11 @@ import { connect } from 'react-redux';
 const Posts = props => {
      
     const postCards = props.posts.length > 0 ?
-        props.posts.map(p => <PostCard post={p} key={p.id} />) : null
+        props.posts.map(p => (<div key={p.id}><PostCard post={p} /></div>)) : null
     return (
+        
          postCards
+         
     )
 }
 
