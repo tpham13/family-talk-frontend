@@ -80,7 +80,7 @@ export const createPost = (postData, history) => {
           */
           dispatch(addPost(response.data))
           dispatch(resetPostForm())
-          history.push(`/posts/${response.data.id}`)
+          // history.push(`/posts/${response.data.id}`)
         }
       })
       .catch(console.log)

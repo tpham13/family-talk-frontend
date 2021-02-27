@@ -26,7 +26,7 @@ const PostForm = ({ formData, updatePostForm, userId, post, handleSubmit, editMo
         <div>
         <form onSubmit={event => {
             event.preventDefault();
-            console.log('postform here');
+            // console.log('postform here');
             handleSubmit(formData, userId)
             }}>
             <input 

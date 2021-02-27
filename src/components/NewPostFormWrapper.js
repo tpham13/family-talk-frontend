@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 
 const NewPostFormWrapper = ({ history, createPost }) => {
     // this can either be props.history or destructure it and use it like below:
-    const handleSubmit = (event, formData, userId, history) => { 
-        event.preventDefault();
-        console.log('in new post form event is', event)
+    const handleSubmit = (formData, userId, history) => { 
         createPost({
             ...formData,
             userId
