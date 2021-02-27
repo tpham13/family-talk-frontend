@@ -6,6 +6,8 @@ export default (state = [], action) => {
             return state.concat(action.trip)
         case "CLEAR_POSTS":
             return []
+        case "UPDATE_POST":
+            return state.map(post => post.id === action.post.id ? action.post : post)
         default:
             return state
     }

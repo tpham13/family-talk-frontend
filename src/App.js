@@ -8,11 +8,11 @@ import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import Posts from './components/Posts.js';
 import Home from './components/Home.js';
-import PostForm from './components/PostForm.js';
 // import MainContainer from './components/MainContainer'
 import  { Route, Switch } from 'react-router-dom';
 import { setFormDataforEdit } from './actions/postForm'
 import NewPostFormWrapper from './components/NewPostFormWrapper.js'
+import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
 
 class App extends React.Component {
@@ -43,7 +43,7 @@ class App extends React.Component {
         }/>
         <Route exact path='/posts/:id/:edit' render={props => {
           const post = posts.find(post => post.id === props.match.params.id)
-          return <PostForm post={post} {...props}/>
+          return <EditPostFormWrapper post={post} {...props}/>
         }
         }/>
       </Switch>  

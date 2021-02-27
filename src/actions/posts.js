@@ -19,6 +19,13 @@ export const addPost = post => {
     post
   }
 }
+
+export const updatePostSucess = post => {
+  return {
+    type: "UPDATE_POST",
+    post
+  }
+}
 export const getPosts = () => {
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/posts", {
@@ -43,6 +50,7 @@ export const getPosts = () => {
 
 // async action creator that return a function that return a promise
 export const createPost = (postData, history) => {
+
   return dispatch => {
     const sendablePostData = { 
       post: {
@@ -72,6 +80,37 @@ export const createPost = (postData, history) => {
           */
           dispatch(addPost(response.data))
           dispatch(resetPostForm())
+          history.push(`/posts/${response.data.id}`)
+        }
+      })
+      .catch(console.log)
+  }
+
+
+}
+
+export const updatePost = (postData, history) => {
+  return dispatch => {
+    const sendablePostData = { 
+      post: {
+        content: postData.content,
+        user_id: postData.userId
+      }
+    }
+    return fetch(`http://localhost:3000/api/v1/posts/${postData.postId}`, {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(sendablePostData)
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(updatePostSucess(response.data))
           history.push(`/posts/${response.data.id}`)
         }
       })

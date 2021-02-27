@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 which when invoked, actually Redux will now dispatch
 */ 
 // this is a functional component
-const PostForm = ({ formData, history, updatePostForm, userId, post, handleSubmit }) => { 
+const PostForm = ({ formData, updatePostForm, userId, post, handleSubmit, editMode }) => { 
     const { content } = formData
     const handleChange = event => {
         // console.log("trigger handleChange")
@@ -25,8 +25,9 @@ const PostForm = ({ formData, history, updatePostForm, userId, post, handleSubmi
     return (
         <div>
         <form onSubmit={event => {
+            event.preventDefault();
             console.log('postform here');
-            handleSubmit(event, formData, userId, history)
+            handleSubmit(formData, userId)
             }}>
             <input 
                 placeholder="What's on your mind today..."
@@ -37,7 +38,7 @@ const PostForm = ({ formData, history, updatePostForm, userId, post, handleSubmi
             <br/>
             <input
                 type="submit"
-                value="Create Post"
+                value={editMode ?  "UpdatePost" : "Create Post"}
             />
 
         </form>

@@ -40,6 +40,8 @@
 .NavBar {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  
 }
 
 a.active {
@@ -47,5 +49,5 @@ a.active {
 }
 
 #loggedin {
-  font-size: 10px
+  font-size: 16px
 }
