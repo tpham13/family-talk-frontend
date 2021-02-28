@@ -56,7 +56,8 @@ export const createPost = (postData, history) => {
       post: {
         content: postData.content,
         user_id: postData.userId
-      }
+      },
+      history
     }
     return fetch("http://localhost:3000/api/v1/posts", {
       credentials: "include",
@@ -80,7 +81,7 @@ export const createPost = (postData, history) => {
           */
           dispatch(addPost(response.data))
           dispatch(resetPostForm())
-          // history.push(`/posts/${response.data.id}`)
+          history.push(`/posts/${response.data.id}`)
         }
       })
       .catch(console.log)
