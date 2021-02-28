@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 
-// PostCard is expect post as a .....
+// PostCard is expect post as a props so we need to pass post as a props in App.js route
 const PostCard = ({post}) => {
 
     return (

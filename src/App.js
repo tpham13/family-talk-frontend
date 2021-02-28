@@ -36,7 +36,8 @@ class App extends React.Component {
           <Route exact path='/posts' component={Posts}/>
           <Route exact path='/posts/new' component={NewPostFormWrapper}/>
           <Route exact path='/posts/:id' render={props => {
-            const post = posts.find(post => post.Id === props.match.params.id)
+            // need to get post objects that has all the attributes to pass down to PostCard
+            const post = posts.find(post => post.id === props.match.params.id)
             console.log(post)
             return <PostCard post={post} {...props}/>
             }
