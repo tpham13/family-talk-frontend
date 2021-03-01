@@ -11,13 +11,11 @@ export const updatePostForm = (name, value) => {
     }
 }
 
-export const resetPostForm = (name, value) => {
+export const resetPostForm = () => {
     // console.log(name, value)
-    const formData = { name, value }
     // console.log(formData)
     return {
-        type: 'RESET_NEW_POST_FORM'
-         
+        type: 'RESET_NEW_POST_FORM',
         
     }
 }
@@ -26,7 +24,7 @@ export const resetPostForm = (name, value) => {
 As setFormDataforEdit take in post as an argument. As long as I have the post object coming from my state, 
 I'll pickup that tripFormData that I need and pick up that data and update it all at once
 */
-export const setFormDataforEdit = post => {
+export const setFormDataForEdit = post => {
     const postFormData = {
         content: post.attributes.content
     }

@@ -20,12 +20,19 @@ export const addPost = post => {
   }
 }
 
+export const deletePostSuccess = postId => {
+  return {
+    type: "DELETE_POST",
+    postId
+  }
+}
 export const updatePostSucess = post => {
   return {
     type: "UPDATE_POST",
     post
   }
 }
+
 export const getPosts = () => {
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/posts", {
@@ -115,6 +122,28 @@ export const updatePost = (postData, history) => {
           // I don't need to reset form here because the React lifecycle method componentWillMount in EditPostFormWrapper
           // already took care of resetPostForm()
           history.push(`/posts/${response.data.id}`)
+        }
+      })
+      .catch(console.log)
+  }
+}
+
+export const deletePost = (postId, history) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/posts/${postId}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(deletePostSuccess(postId))
+          history.push(`/posts`)
         }
       })
       .catch(console.log)

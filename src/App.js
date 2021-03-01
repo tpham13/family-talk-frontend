@@ -10,7 +10,6 @@ import Posts from './components/Posts.js';
 import Home from './components/Home.js';
 // import MainContainer from './components/MainContainer'
 import  { Route, Switch, withRouter } from 'react-router-dom';
-import { setFormDataforEdit } from './actions/postForm'
 import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
@@ -24,7 +23,7 @@ class App extends React.Component {
 
 
   render(){
-    const { loggedIn, posts, setFormDataforEdit } = this.props
+    const { loggedIn, posts } = this.props
     return ( 
       
       <div className="App">
@@ -78,4 +77,4 @@ const mapStateToProps = state => {
 
 // {getCurrentUser} here is using mapDispatchToProps
 // export default connect (mapStateToProps, {getCurrentUser, setFormDataforEdit } ) (App);
-export default withRouter(connect(mapStateToProps, { getCurrentUser, setFormDataforEdit })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
