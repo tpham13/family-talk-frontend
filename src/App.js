@@ -21,6 +21,8 @@ class App extends React.Component {
     this.props.getCurrentUser()
   }
 
+
+
   render(){
     const { loggedIn, posts, setFormDataforEdit } = this.props
     return ( 

@@ -19,14 +19,13 @@ class EditPostFormWrapper extends React.Component {
         this.props.resetPostForm()
     }
     
-    handleSubmit = (formData, userId) => { 
+    handleSubmit = (formData) => { 
         // console.log("we're in ediPostformWrapper")
         const { updatePost, post, history } = this.props
         // console.log('in new post form event is')
         updatePost({
             ...formData,
                 postId: post.id,
-                userId
             }, 
             history)
         }

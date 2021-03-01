@@ -95,7 +95,7 @@ export const updatePost = (postData, history) => {
     const sendablePostData = { 
       post: {
         content: postData.content,
-        user_id: postData.userId
+        // delete user_id: postData.userId b/c we're not changing the user id, just the post content
       }
     }
     return fetch(`http://localhost:3000/api/v1/posts/${postData.postId}`, {
@@ -112,6 +112,8 @@ export const updatePost = (postData, history) => {
           alert(response.error)
         } else {
           dispatch(updatePostSucess(response.data))
+          // I don't need to reset form here because the React lifecycle method componentWillMount in EditPostFormWrapper
+          // already took care of resetPostForm()
           history.push(`/posts/${response.data.id}`)
         }
       })
