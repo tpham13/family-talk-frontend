@@ -13,6 +13,7 @@ import  { Route, Switch, withRouter } from 'react-router-dom';
 import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
+import Footer from './components/FooterUi.js'
 
 class App extends React.Component {
 
@@ -50,7 +51,8 @@ class App extends React.Component {
             return <EditPostFormWrapper post={post} {...props}/>
             }
           }/>
-        </Switch>  
+        </Switch>
+        <Footer />  
       </div>
       
       

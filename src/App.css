@@ -38,15 +38,16 @@
   }
 }
 
-.NavBar {
+/* .NavBar {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  color: gray
   
-}
+} */
 
 a.active {
-  color:green
+  color:white
 }
 
 #loggedin {
