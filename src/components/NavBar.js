@@ -27,7 +27,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
     const classes = useStyles();
     return (
         <div className="navBar">
-            <p>{ loggedIn ? <><h1 id="loggedin">Welcome, {currentUser.attributes.name} from {currentUser.attributes.group.name} family!</h1></> : null } </p>
+            {/* <p>{ loggedIn ? <><h1 id="loggedin">Welcome, {currentUser.attributes.name} from {currentUser.attributes.group.name} family!</h1></> : null } </p> */}
 
             <p>Let's start sharing! Anything you want! The family want to know.</p>
             <Grid container spacing={2} justify="center">

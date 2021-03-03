@@ -38,13 +38,6 @@
   }
 }
 
-/* .NavBar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: gray
-  
-} */
 
 a.active {
   color:white
@@ -53,3 +46,4 @@ a.active {
 #loggedin {
   font-size: 16px
 }
+

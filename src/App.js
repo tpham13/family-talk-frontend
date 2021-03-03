@@ -14,6 +14,7 @@ import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
 import Footer from './components/FooterUi.js'
+import Header from './components/HeaderUi.js'
 
 class App extends React.Component {
 
@@ -28,7 +29,8 @@ class App extends React.Component {
     return ( 
       
       <div className="App">
-      { loggedIn ? <NavBar location={this.props.location} /> : <Home /> }
+      { loggedIn ? <Header location={this.props.location} /> : null}
+      {/* { loggedIn ? <NavBar location={this.props.location} /> : <Home /> } */}
       {/* render can take a function */}
         <Switch>
           <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
