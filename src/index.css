@@ -15,7 +15,7 @@ code {
 }
 
 
-.footer{
+/* .footer{
   margin-top: 0rem;
   padding: 0rem;
   background-color: rgb(240, 235, 219);
@@ -26,7 +26,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   color: gray
-}
+} */
 .header {
   padding: 1px;
   text-align: center;
@@ -35,19 +35,6 @@ code {
   font-size: 10px;
 }
 
-.navBar{
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: rgb(240, 235, 219);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* display: flex; */
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} 
+
 
 

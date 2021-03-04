@@ -27,10 +27,10 @@ class App extends React.Component {
   render(){
     const { loggedIn, posts } = this.props
     return ( 
-      
+      // <div>
       <div className="App">
-      { loggedIn ? <Header location={this.props.location} /> : null}
-      {/* { loggedIn ? <NavBar location={this.props.location} /> : <Home /> } */}
+      {/* { loggedIn ? <Header location={this.props.location} /> : null} */}
+      { loggedIn ? <NavBar location={this.props.location} /> : <Home /> }
       {/* render can take a function */}
         <Switch>
           <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
@@ -56,7 +56,7 @@ class App extends React.Component {
         </Switch>
         <Footer />  
       </div>
-      
+      // </div>
       
     );
   }
