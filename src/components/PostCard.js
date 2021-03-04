@@ -22,7 +22,7 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345, 
+      maxWidth: 500, 
     },
    
   });
@@ -38,26 +38,26 @@ const PostCard = ({post}) => {
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    alt="Contemplative Reptile"
-                    height="200"
+                    alt="Parrot"
+                    height="330"
                     image="https://vetspace.2ndchance.info/wp-content/uploads/2020/07/parrottalk-imageLgfl-copy-compressed.jpg"
-                    title="Contemplative Reptile"
+                    title="Parrot"
                  
                     />
-                <CardContent>
+                <CardContent >
                     
                     <Typography variant="body20" color="textSecondary" component="p">
-                        <p> {post.attributes.user.name} shared...</p>
+                        <p>{post.attributes.user.name} shared...</p>
                         
                     </Typography>
-                    <Typography gutterBottom variant="h20" component="h2">
+                    <Typography gutterBottom variant="h20" component="h3">
                         <p>{post.attributes.content}</p>
                     </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary" href="#contained-buttons">
-                    <Link to={`/posts/${post.id}/edit`}>Edit this post</Link>
+                    <Link to={`/posts/${post.id}/edit`}>Edit</Link>
                 </Button>     
             </CardActions>
     </Card>
