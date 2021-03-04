@@ -27,15 +27,19 @@ class App extends React.Component {
   render(){
     const { loggedIn, posts } = this.props
     return ( 
-      // <div>
       <div className="App">
-      {/* { loggedIn ? <Header location={this.props.location} /> : null} */}
-      { loggedIn ? <NavBar location={this.props.location} /> : <Home /> }
+        <div className="header">Header       
+          { loggedIn ? <Header location={this.props.location} /> : null}
+        </div>
+        <div className="navBar"> NavBar
+          { loggedIn ? <NavBar location={this.props.location} /> : <Home /> }
+        </div>
       {/* render can take a function */}
         <Switch>
           <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/posts' component={Posts}/>
+            <div className="content">Content<Route exact path='/posts' component={Posts}/></div>
+          
           {/* <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/> */}
           <Route exact path='/posts' component={Posts}/>
           <Route exact path='/posts/new' component={NewPostFormWrapper}/>
@@ -54,9 +58,11 @@ class App extends React.Component {
             }
           }/>
         </Switch>
+        <div className="footer"> Footer
+            <Footer />  
+        </div>
         <Footer />  
       </div>
-      // </div>
       
     );
   }
