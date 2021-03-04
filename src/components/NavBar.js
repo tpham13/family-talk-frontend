@@ -5,15 +5,13 @@ import Logout from './Logout.js'
 
 // currentUser is from {connect}
 // this is a functional component
-const NavBar = ({ currentUser, loggedIn }) => {
+const NavBar = ({currentUser}) => {
     return (
+        
         <div>
+            <h1> {currentUser.attributes.group.name} family</h1> 
             <NavLink exact  activeClassName="active" to="/posts">Family updates </NavLink>
-            <br/>
-            <br/>
             <NavLink exact activeClassName="active"  to="/posts/new">Share an update </NavLink>
-            <br/>
-            <br/>
             <Logout/>       
         </div>             
     )

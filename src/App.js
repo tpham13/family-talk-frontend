@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
 import './App.css';
-import Login from './components/Login.js';
+import LoginUi from './components/LoginUi.js';
 // import Logout from './components/Logout.js';
 import Signup from './components/Signup.js';
 import Posts from './components/Posts.js';
@@ -28,29 +28,32 @@ class App extends React.Component {
     const { loggedIn, posts } = this.props
     return ( 
       <div className="container">
-        <div className="header">Header       
+        {/* <div className="header">Header       
           { loggedIn ? <Header location={this.props.location} /> : null}
+        </div> */}
+        <div className="navBar"> 
+          { loggedIn ? <NavBar location={this.props.location} /> : <Home />}
         </div>
-        <div className="navBar"> NavBar
-          { loggedIn ? <NavBar location={this.props.location} /> : <Home /> }
-        </div>
+        
       {/* render can take a function */}
         <Switch>
-          <div className="content">Content
+          <div className="content">
             <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
-            <Route exact path='/login' component={Login}/>
-            <div className="posts">
+            <Route exact path='/login' component={LoginUi}/>
+            <p className="posts">
               <Route exact path='/posts' component={Posts}/>
-            </div>
-            <Route exact path='/posts/new' component={NewPostFormWrapper}/>
-            
-            <Route exact path='/posts/:id' render={props => {
-              // need to get post objects that has all the attributes to pass down to PostCard
-              const post = posts.find(post => post.id === props.match.params.id)
-              // console.log(post)
-              return <PostCard post={post} {...props}/>}}
+            </p>
+            <p>
+              <Route exact path='/posts/new' component={NewPostFormWrapper}/>
+            </p>
+            <p>
+              <Route exact path='/posts/:id' render={props => {
+                // need to get post objects that has all the attributes to pass down to PostCard
+                const post = posts.find(post => post.id === props.match.params.id)
+                // console.log(post)
+                return <PostCard post={post} {...props}/>}}
             />
-          
+            </p>
             <Route exact path='/posts/:id/:edit' render={props => {
               const post = posts.find(post => post.id === props.match.params.id)
                 return (

@@ -57,6 +57,7 @@ export const getPosts = () => {
 
 // async action creator that return a function that return a promise
 export const createPost = (postData, history) => {
+  console.log(postData)
 
   return dispatch => {
     const sendablePostData = { 
