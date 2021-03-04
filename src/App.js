@@ -34,7 +34,6 @@ class App extends React.Component {
         <div className="navBar"> 
           { loggedIn ? <NavBar location={this.props.location} /> : <Home />}
         </div>
-        
       {/* render can take a function */}
         <Switch>
           <div className="content">
@@ -66,7 +65,7 @@ class App extends React.Component {
           </div>
           
         </Switch>
-        <div className="footer"> Footer
+        <div className="footer"> 
             <Footer />  
         </div>
       </div>

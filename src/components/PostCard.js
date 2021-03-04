@@ -61,7 +61,7 @@ const PostCard = ({post}) => {
                 </Button>     
             </CardActions>
     </Card>
-    ) :<p>This is the post card</p> );
+    ) : null );
 
 }
         

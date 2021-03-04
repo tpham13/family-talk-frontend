@@ -1,5 +1,5 @@
 import React from 'react';
-import PostForm from './PostForm';
+import PostFormWithUi from './PostFormWithUi';
 import { createPost } from '../actions/posts';
 import { connect } from 'react-redux';
 
@@ -18,7 +18,7 @@ const NewPostFormWrapper = ({ history, createPost }) => {
         history)
 
     }
-     return <PostForm history={history} handleSubmit={handleSubmit}/>
+     return <PostFormWithUi history={history} handleSubmit={handleSubmit}/>
 };
 
 // export default connect(null, { createPost })(NewPostFormWrapper);

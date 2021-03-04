@@ -1,5 +1,5 @@
 import React from 'react';
-import PostForm from './PostForm';
+import PostFormWithUi from './PostFormWithUi';
 import { updatePost, deletePost } from '../actions/posts';
 import { setFormDataForEdit, resetPostForm } from '../actions/postForm'
 import { connect } from 'react-redux';
@@ -46,7 +46,7 @@ class EditPostFormWrapper extends React.Component {
             const postId = post ? post.id : null
             return <>
             
-            <PostForm editMode  handleSubmit={this.handleSubmit}/>
+            <PostFormWithUi editMode  handleSubmit={this.handleSubmit}/>
             <br/>
             <button style={{color:"red"}} onClick={() => deletePost(postId, history)}>Delete post</button>
             </>

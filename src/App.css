@@ -3,54 +3,47 @@
   /* background-color: #282c34; */
   text-align: center;
   display: grid;
-  grid-template-rows: 0fr 2fr;
-  grid-template-columns: 1.5fr 6fr 1.5fr;
-  gap: 5px;
+  grid-template-rows: 1fr 20fr 0fr;
+  grid-template-columns: 2 fr 4fr;
+  gap: 10px;
   grid-template-areas: 
-    "nav"
-    "content"
-    "footer"
+    "navBar navBar"
+    " empty content"
+    "footer footer"
 
 }
 
-.header {
-  /* background-color: burlywood; */
-  grid-row: 1 ;
-  grid-column: 1 / -1;
-  color: rgb(60, 85, 70)
-}
+
 
 .navBar {
-  background-color: rgb(163, 107, 33);
-  grid-row: 2;
-  grid-column: 1/-1;
+  /* background-color: rgb(48, 77, 61); */
+  grid-area: navBar;
+  
 }
+
 
 .content {
 
   /* background-color: rgb(235, 228, 228); */
-  grid-row: auto  2;
-  grid-column: 2;
+  grid-area: content;
   grid-template-columns: 100%;
-  min-height: 100vh;  
+  /* min-height: 100vh;  
   min-height: 100%; 
   flex-direction: row-reverse;
-  flex-flow: column-reverse wrap-reverse;
+  flex-flow: column-reverse wrap-reverse; */
   
 }
 
 
 
 .footer {
-  background-color: burlywood;
-  grid-row: 4;
-  /* -1 indicate that the footer will expand all the way to the end */
-  grid-column: 1 / -1;
-  position:fixed;
+  /* background-color: burlywood; */
+  grid-area: footer;
+  position:relative; 
 left:0;
 bottom:0;
 right:0;
-color: white
+color: rgb(8, 8, 8)
 }
 
 
