@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://t1.pixers.pics/img-1fb6f67c/framed-canvas-prints-vintage-woman-talking-on-the-phone.jpg?H4sIAAAAAAAAA3WOW26EMAxFtxMkgh3IA1jA_M4SUAAzpQUSJZkymtU3qOpnZcmPa137wPOIdiGY6EgUYF_neSNY1i1PsQ8U1zcxpWSJRZ_VjSHmzn1TmILzjOcNN22pUZeqrYv-tNm42_DFPlLysQeITeXXV76WyxRh2iPUKDQIBGUWUlphKwTh4MZg39xvLh2OB7tbPgc6-aW603KNvNMvhbyt_PEo8Yrij1AilvIiS2HdWUZ1GSKxT_8o4B-Q3x6yC253kAZ0d-VWXNJwu0ujO2laMYzSqGbsUMrRiAWJbK3qhmohqekWM1b5yw_klVDPRwEAAA==)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -125,7 +125,7 @@ const LoginUi = ({ loginFormData, updateLoginForm, login, history }) => {
             <Grid container>
               
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

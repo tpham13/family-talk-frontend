@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import LoginUi from './LoginUi'
 
 
 const Home = () => (
 
     <div>
-        <h3>Welcome, please 
+        <h1>Welcome to family talk </h1>
             <img href="https://images-na.ssl-images-amazon.com/images/I/71rFdxgErpL._SS210_.png"></img>
-            <Link to="/signup">Sign Up</Link> OR 
-            <Link to="/login">Log In</Link> </h3>
+            {/* {!loggedIn? <LoginUi /> : null } */}
+            {/* <LoginUi /> */}
+            {/* <Link to="/signup">Sign Up</Link> OR  */}
+            <Link to="/login">Log In</Link> 
 
     </div>
 )
