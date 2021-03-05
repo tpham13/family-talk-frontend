@@ -5,7 +5,7 @@ import NavBar from './components/NavBar.js'
 import './App.css';
 import LoginUi from './components/LoginUi.js';
 // import Logout from './components/Logout.js';
-import Signup from './components/Signup.js';
+import SignupUi from './components/SignupUi.js';
 import Posts from './components/Posts.js';
 import Home from './components/Home.js';
 // import MainContainer from './components/MainContainer'
@@ -40,7 +40,7 @@ class App extends React.Component {
         <Switch>
           <Fragment>
           <div className="content">
-            <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
+            <Route exact path='/signup' render={({history}) =><SignupUi history={history}/>}/>
             <Route exact path='/login' component={LoginUi}/>
             <p className="posts">
               <Route exact path='/posts' component={Posts}/>

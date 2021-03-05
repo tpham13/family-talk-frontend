@@ -60,12 +60,12 @@ const SignupUi = ({ signupFormData, updateSignupForm, signup, history }) => {
 };
 
     const handleInputGroupChange = event => {
-        const { group_name, value } = event.target
+        const { name, value } = event.target
         const updatedFormInfo = {
             ...signupFormData,
             group: {
                 ...signupFormData.group,
-                [group_name]: value
+                [name]: value
             }
         }
         updateSignupForm(updatedFormInfo)
@@ -122,7 +122,7 @@ const SignupUi = ({ signupFormData, updateSignupForm, signup, history }) => {
               fullWidth
               id="group"
               label="group"
-              name="group"
+              name="group_name"
               autoFocus
               value={signupFormData.group.group_name} 
               onChange={handleInputGroupChange}
