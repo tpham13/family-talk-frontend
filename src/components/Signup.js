@@ -36,9 +36,9 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
         <form onSubmit={handleSubmit}>
             <input placeholder="name" value={signupFormData.name} name="name" type="text" onChange={handleInputUserChange} />
             <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleInputUserChange} />
-            <input placeholder="group" value={signupFormData.group.name} name="name" type="text" onChange={handleInputGroupChange} />
+            <input placeholder="group" value={signupFormData.group.group_name} name="group_name" type="text" onChange={handleInputGroupChange} />
             <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleInputUserChange} />
-            <input type="submit" value="Signup" />
+            <button type="submit"> submit </button>
         </form>
 
     )
@@ -57,7 +57,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
 */
 const mapStateToProps = state => {
     return {
-        signupFormData: state.signupForm
+        signupFormData: state.signupForm,
     }
 }
 

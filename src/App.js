@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
@@ -31,11 +31,14 @@ class App extends React.Component {
         {/* <div className="header">Header       
           { loggedIn ? <Header location={this.props.location} /> : null}
         </div> */}
-        <div className="navBar"> 
+        <div className="navBar">
+        
           { loggedIn ? <NavBar location={this.props.location} /> : <Home />}
+          
         </div>
       {/* render can take a function */}
         <Switch>
+          <Fragment>
           <div className="content">
             <Route exact path='/signup' render={({history}) =><Signup history={history}/>}/>
             <Route exact path='/login' component={LoginUi}/>
@@ -63,8 +66,9 @@ class App extends React.Component {
           
           {/* <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/> */}
           </div>
-          
+          </Fragment>
         </Switch>
+        
         <div className="footer"> 
             <Footer />  
         </div>

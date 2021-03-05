@@ -3,7 +3,7 @@ const initialState = {
     username: "", 
     password: "",
     group: {
-        name: "",
+        group_name: "",
     }
     
 }
