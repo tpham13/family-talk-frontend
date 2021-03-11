@@ -3,9 +3,9 @@
   /* background-color: #282c34; */
   text-align: center;
   display: grid;
-  grid-template-rows: 1fr 2fr 15fr 0fr;
+  grid-template-rows: 1fr 1fr 25fr 0fr;
   grid-template-columns: 2fr  4fr;
-  gap: 5px;
+  gap: 10px;
   grid-template-areas: 
     "navBar navBar"
     " empty  sharePost"
@@ -17,7 +17,7 @@
 
 
 .navBar {
-  /* background-color: rgb(48, 77, 61); */
+  background-color: rgb(221, 197, 144);
   grid-area: navBar;
   
 }

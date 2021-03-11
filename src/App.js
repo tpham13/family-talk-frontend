@@ -4,18 +4,14 @@ import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
 import './App.css';
 import LoginUi from './components/LoginUi.js';
-// import Logout from './components/Logout.js';
 import SignupUi from './components/SignupUi.js';
 import Posts from './components/Posts.js';
-// import PostFormWithUi from './components/PostFormWithUi.js';
 import Home from './components/Home.js';
-// import MainContainer from './components/MainContainer'
 import  { Route, Switch, withRouter } from 'react-router-dom';
 import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
 import Footer from './components/FooterUi.js'
-// import Header from './components/HeaderUi.js'
 
 class App extends React.Component {
 
@@ -31,8 +27,7 @@ class App extends React.Component {
             { loggedIn ? <NavBar location={this.props.location} /> : <Home />}
           </div>
           <div className="sharePost">
-            {/* {loggedIn ? <PostFormWithUi location={this.props.location} /> : null} */}
-           <Route exact path='/posts/new' component={NewPostFormWrapper}/>
+            {loggedIn ? <NewPostFormWrapper location={this.props.location} /> : null}
           </div>
         
       {/* render can take a function */}
@@ -45,10 +40,6 @@ class App extends React.Component {
             <Route exact path='/signup' render={({history}) =><SignupUi history={history}/>}/>
             <Route exact path='/login' component={LoginUi}/>
             
-            {/* <div className="sharePost"> */}
-            {/* {loggedIn ? <PostFormWithUi location={this.props.location} /> : null} */}
-           <Route exact path='/posts/new' component={NewPostFormWrapper}/>
-          {/* </div> */}
             <p>
               <Route exact path='/posts/:id' render={props => {
                 // need to get post objects that has all the attributes to pass down to PostCard
@@ -65,7 +56,6 @@ class App extends React.Component {
               }
             }/>  
           
-          {/* <Route exact path='/' render={(props) => loggedIn ? <Posts {...props}/> : <Home {...props} />}/> */}
           </div>
           </Fragment>
         </Switch>
