@@ -7,7 +7,7 @@ import LoginUi from './components/LoginUi.js';
 // import Logout from './components/Logout.js';
 import SignupUi from './components/SignupUi.js';
 import Posts from './components/Posts.js';
-import PostFormWithUi from './components/PostFormWithUi.js';
+// import PostFormWithUi from './components/PostFormWithUi.js';
 import Home from './components/Home.js';
 // import MainContainer from './components/MainContainer'
 import  { Route, Switch, withRouter } from 'react-router-dom';
@@ -15,7 +15,7 @@ import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
 import Footer from './components/FooterUi.js'
-import Header from './components/HeaderUi.js'
+// import Header from './components/HeaderUi.js'
 
 class App extends React.Component {
 
@@ -23,38 +23,32 @@ class App extends React.Component {
     this.props.getCurrentUser()
   }
 
-
-
   render(){
     const { loggedIn, posts } = this.props
     return ( 
       <div className="container">
-        {/* <div className="header">Header       
-          { loggedIn ? <Header location={this.props.location} /> : null}
-        </div> */}
-        <div className="navBar">
+          <div className="navBar">
+            { loggedIn ? <NavBar location={this.props.location} /> : <Home />}
+          </div>
+          <div className="sharePost">
+            {/* {loggedIn ? <PostFormWithUi location={this.props.location} /> : null} */}
+           <Route exact path='/posts/new' component={NewPostFormWrapper}/>
+          </div>
         
-          { loggedIn ? <NavBar location={this.props.location} /> : <Home />}
-          
-        </div>
-        {/* <div className="posts">
-        
-          { loggedIn ? <Posts location={this.props.location} /> : <Home />}
-          
-        </div> */}
       {/* render can take a function */}
         <Switch>
           <Fragment>
 
-            <div className="sharePost">
-              {loggedIn ? <PostFormWithUi location={this.props.location} /> : null}
-            </div>
-
           <div className="content">
-            <div>{ loggedIn ? <Posts location={this.props.location} /> : null}</div>
+            <div>{ loggedIn ?  <Posts location={this.props.location} /> : null}</div>
+            {/* { loggedIn ? <Route exact path='/posts' component={Posts}/>  */}
             <Route exact path='/signup' render={({history}) =><SignupUi history={history}/>}/>
             <Route exact path='/login' component={LoginUi}/>
             
+            {/* <div className="sharePost"> */}
+            {/* {loggedIn ? <PostFormWithUi location={this.props.location} /> : null} */}
+           <Route exact path='/posts/new' component={NewPostFormWrapper}/>
+          {/* </div> */}
             <p>
               <Route exact path='/posts/:id' render={props => {
                 // need to get post objects that has all the attributes to pass down to PostCard

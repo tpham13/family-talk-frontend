@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -96,6 +96,7 @@ const mapStateToProps = state => {
     return {
         formData: state.postForm,
         userId
+        
     }
 }
 /* 2. Pass the action creator to redux's connect function
