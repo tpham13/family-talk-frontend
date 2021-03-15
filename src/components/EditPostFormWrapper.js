@@ -18,7 +18,6 @@ class EditPostFormWrapper extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // console.log("in componentDidUpdate, props are", this.props)
         // console.log("in componentDidMount, props are", prevProps)
         this.props.post && !prevProps.post && 
         this.props.setFormDataForEdit(this.props.post)

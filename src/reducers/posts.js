@@ -10,7 +10,7 @@ export default (state = [], action) => {
             return state.map(post => post.id === action.post.id ? action.post : post)
         // DELETE_POST only fire if post is delete  successful
         case "DELETE_POST":
-            // console.log("action.tripId is", action.postId)
+            console.log("action.postId is", action.postId)
             return state.filter(post => post.id === action.postId ? false : true)
         default:
             return state

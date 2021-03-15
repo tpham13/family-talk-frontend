@@ -122,7 +122,7 @@ export const updatePost = (postData, history) => {
           dispatch(updatePostSucess(response.data))
           // I don't need to reset form here because the React lifecycle method componentWillMount in EditPostFormWrapper
           // already took care of resetPostForm()
-          history.push(`/posts/${response.data.id}`)
+          history.push(`/posts`)
         }
       })
       .catch(console.log)

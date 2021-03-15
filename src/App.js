@@ -12,11 +12,13 @@ import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
 import Footer from './components/FooterUi.js'
+// import {getPosts} from './actions/posts.js'
 
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.getCurrentUser()
+    this.props.getCurrentUser();
+    // this.props.getPosts()
   }
 
   render(){
@@ -57,7 +59,7 @@ class App extends React.Component {
             }/>  
           
           </div>
-          </Fragment>
+            </Fragment>
         </Switch>
         
         <div className="footer"> 

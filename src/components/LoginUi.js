@@ -75,7 +75,7 @@ const LoginUi = ({ loginFormData, updateLoginForm, login, history }) => {
             {/* <LockOutlinedIcon /> */}
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Log in
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleSubmit}>
             <TextField
@@ -107,10 +107,7 @@ const LoginUi = ({ loginFormData, updateLoginForm, login, history }) => {
               onChange={handleInputChange}
             />
               {/* <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} /> */}
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            
             <Button
               type="submit"
               fullWidth

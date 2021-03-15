@@ -34,7 +34,7 @@ const PostCard = ({post}) => {
                     component="img"
                     alt="Parrot"
                     height="330"
-                    image="https://vetspace.2ndchance.info/wp-content/uploads/2020/07/parrottalk-imageLgfl-copy-compressed.jpg"
+                    image="https://www.paho.org/sites/default/files/styles/flexslider_full/public/2020-03/generic-retro-microphones-1200x600.jpg?h=bde28bee&itok=RM2qvk9D"
                     title="Parrot"
                  
                     />
