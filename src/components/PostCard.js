@@ -32,10 +32,10 @@ const PostCard = ({post}) => {
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    alt="Parrot"
+                    alt="microphones"
                     height="330"
                     image="https://www.paho.org/sites/default/files/styles/flexslider_full/public/2020-03/generic-retro-microphones-1200x600.jpg?h=bde28bee&itok=RM2qvk9D"
-                    title="Parrot"
+                    title="Microphones"
                  
                     />
                 <CardContent >
