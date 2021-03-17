@@ -40,11 +40,11 @@ const PostCard = ({post}) => {
                     />
                 <CardContent >
                     
-                    <Typography variant="body20" color="textSecondary" component="p">
-                        <p>{post.attributes.user.name} shared...</p>
+                    <Typography variant="subtitle1" color="textSecondary" component="p">
+                        {post.attributes.user.name} shared...
                         
                     </Typography>
-                    <Typography gutterBottom variant="h20" component="h3">
+                    <Typography gutterBottom variant="body1" component="h3">
                         <p>{post.attributes.content}</p>
                     </Typography>
                 </CardContent>

@@ -64,7 +64,7 @@ const PostFormWithUi = ({ formData, updatePostForm, userId, post, handleSubmit, 
           <TextField
             variant="outlined"
             margin="normal"
-            multiline="true"
+            // multiline= "true"
             fullWidth
             label="share with the fam..."
             name="content"

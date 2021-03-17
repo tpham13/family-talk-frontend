@@ -7,11 +7,6 @@ import { connect } from 'react-redux';
 
 class EditPostFormWrapper extends React.Component {
 
-    // constructor(){
-    //     super()
-    //     // console.log("in CONSTRUCTOR, props are", this.props)
-    // }
-
     componentDidMount() {
         // console.log("in componentDidMount, props are", this.props)
         this.props.post && this.props.setFormDataForEdit(this.props.post)
