@@ -51,7 +51,7 @@ export const getPosts = () => {
             
           }
         })
-        .catch(console.log)
+        // .catch(console.log)
     }
   }
 
@@ -92,7 +92,7 @@ export const createPost = (postData, history) => {
           history.push(`/posts`)
         }
       })
-      .catch(console.log)
+      // .catch(console.log)
   }
 }
 
@@ -123,7 +123,7 @@ export const updatePost = (postData, history) => {
           history.push(`/posts`)
         }
       })
-      .catch(console.log)
+      // .catch(console.log)
   }
 }
 
@@ -145,6 +145,6 @@ export const deletePost = (postId, history) => {
           history.push(`/posts`)
         }
       })
-      .catch(console.log)
+      // .catch(console.log)
   }
 }

@@ -45,7 +45,7 @@ export const login = (credentials, history) => {
           history.push('/')
         }
       })
-      .catch(console.log)
+      // .catch(console.log)
   }
 }
 
@@ -73,7 +73,7 @@ export const signup = (credentials, history) => {
           history.push('/')
         }
       })
-      .catch(console.log)
+      // .catch(console.log)
   }
 }
 // asychronous action creator, this return a function(data structure), this function receive a dispatch
@@ -109,6 +109,6 @@ export const getCurrentUser = () => {
             
           }
         })
-        .catch(console.log)
+        // .catch(console.log)
     }
   }
