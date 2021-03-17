@@ -57,14 +57,13 @@ const PostFormWithUi = ({ formData, updatePostForm, userId, post, handleSubmit, 
         <form className={classes.form} noValidate onSubmit={event => {
             event.preventDefault();
             // console.log('postform here');
-            // we delete userId argument here b/c we don't need it here. I still  need userId in NewPostForm
-            // when creating a post. We don't need userId for edit b/c we're not changing userId
+            // Delete userId argument here b/c we don't need it here. Still  need userId in NewPostForm
+            // when creating a post. Don't need userId for edit b/c we're not changing userId
             handleSubmit(formData)
             }}>
           <TextField
             variant="outlined"
             margin="normal"
-            // multiline= "true"
             fullWidth
             label="share with the fam..."
             name="content"

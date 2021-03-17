@@ -1,4 +1,4 @@
-export default (state = [], action) => {
+const posts = (state = [], action) => {
     switch (action.type){
         case "SET_POSTS": 
             return action.posts
@@ -16,3 +16,4 @@ export default (state = [], action) => {
             return state
     }
 }
+export default posts; 

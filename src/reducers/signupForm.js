@@ -8,7 +8,7 @@ const initialState = {
     
 }
 
-export default (state = initialState, action) => {
+const signupForm = (state = initialState, action) => {
     switch (action.type) {
         case "UPDATE_SIGNUP_FORM":
             return action.formData
@@ -18,4 +18,6 @@ export default (state = initialState, action) => {
                 return state 
     }
 }
+
+export default signupForm;
 

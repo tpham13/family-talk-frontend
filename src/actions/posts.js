@@ -84,7 +84,7 @@ export const createPost = (postData, history) => {
           /* dispatch by invoking addPost,the action creator, by giving it the info,post, that it needs
           returning the object, "ADD_POST", that I'm dispatching, which TRIGGER or INVOKE all my reducers
           and the one that I'm going to catch on is case "ADD_POST" where I'm going to concatinate my new post
-          to state, which refer to the sta te of posts
+          to state, which refer to the state of posts
           THEN when I export default posts reducer to my store.js, I add posts which is an array
           */
           dispatch(addPost(response.data))
@@ -94,8 +94,6 @@ export const createPost = (postData, history) => {
       })
       .catch(console.log)
   }
-
-
 }
 
 export const updatePost = (postData, history) => {

@@ -4,9 +4,11 @@ If this is a user reducer, state will return an array of objects in it
 When will this default argument use the default? -> WHEN @@INIT gets fire, it will return all the default reducer
 -action is an object
 */
-export default (state = [], action) => {
+const users = (state = [], action) => {
     switch (action.type) {
          default: 
             return state
     }
 }
+
+export default users;

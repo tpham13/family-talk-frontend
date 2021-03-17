@@ -3,7 +3,7 @@ const initialState = {
     
 }
 
-export default (state = initialState, action) => {
+const postForm = (state = initialState, action) => {
     console.log("coming action", action)
     switch (action.type) {
         case "UPDATE_NEW_POST_FORM":
@@ -21,4 +21,6 @@ export default (state = initialState, action) => {
                 return state 
     }
 }
+
+export default postForm;
 
