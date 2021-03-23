@@ -12,13 +12,11 @@ import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
 import Footer from './components/FooterUi.js'
-// import {getPosts} from './actions/posts.js'
 
 class App extends React.Component {
 
   componentDidMount() {
     this.props.getCurrentUser();
-    // this.props.getPosts()
   }
 
   render(){
@@ -34,22 +32,21 @@ class App extends React.Component {
         
       {/* render can take a function */}
         <Switch>
-          <Fragment>
+          <>
 
           <div className="content">
             <div>{ loggedIn ?  <Posts location={this.props.location} /> : null}</div>
-            {/* { loggedIn ? <Route exact path='/posts' component={Posts}/>  */}
             <Route exact path='/signup' render={({history}) =><SignupUi history={history}/>}/>
             <Route exact path='/login' component={LoginUi}/>
             
-            <p>
+            <div>
               <Route exact path='/posts/:id' render={props => {
                 // need to get post objects that has all the attributes to pass down to PostCard
                 const post = posts.find(post => post.id === props.match.params.id)
                 // console.log(post)
                 return <PostCard post={post} {...props}/>}}
             />
-            </p>
+            </div>
             <Route exact path='/posts/:id/:edit' render={props => {
               const post = posts.find(post => post.id === props.match.params.id)
                 return (
@@ -59,7 +56,7 @@ class App extends React.Component {
             }/>  
           
           </div>
-            </Fragment>
+            </>
         </Switch>
         
         <div className="footer"> 

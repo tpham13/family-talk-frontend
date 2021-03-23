@@ -1,105 +1,64 @@
 import React from 'react';
-// import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-
 import {updatePostForm} from '../actions/postForm.js'
 import { connect } from 'react-redux'
 
 
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
-const PostFormWithUi = ({ formData, updatePostForm, userId, post, handleSubmit, editMode }) => {
-  const classes = useStyles();
-  const { content } = formData
-  const handleChange = event => {
-      // console.log("trigger handleChange")
-      const { name, value } = event.target
-      /* 4. This is not an invocation of just the action creator,
-       it's not Redux dispatching the action built by the actions creator
-       with the appropriate arguments
-       */ 
-      // updatePostForm represent the ACTION CREATOR
-      
-      updatePostForm(name, value)
-      
+class PostFormWithUi extends React.Component {
+  constructor() {
+    super();
+    this.state = { 
+      content: '',
+    }
   }
+  
+
+  handleChange = event => {
+      this.setState({
+        content: event.target.value, 
+      })    
+  }
+  render() {
+    
+    // const content  = this.formData
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          What's on your mind today... 
-        </Typography>
-        <form className={classes.form} noValidate onSubmit={event => {
+    
+        <form  onSubmit={event => {
             event.preventDefault();
             // console.log('postform here');
             // Delete userId argument here b/c we don't need it here. Still  need userId in NewPostForm
             // when creating a post. Don't need userId for edit b/c we're not changing userId
-            handleSubmit(formData)
+            this.props.handleSubmit(this.state)
+            console.log(this.state)
             }}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            label="share with the fam..."
-            name="content"
-            autoFocus
-            onChange={handleChange}
-            value={content}
+          <input
+            type="content" 
+            onChange={this.handleChange}
+            value={this.state.content}
           />
          
-          <Button
+          <button
             type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            value={editMode ?  "UpdatePost" : "Create Post"}
+            value={this.props.editMode ?  "UpdatePost" : "Create Post"}
           >
             Share
-          </Button>
-          
+          </button>
+          {this.state.content}
         </form>
-      </div>
-     
-    </Container>
-  );
+  )     
+}
 }
 
-const mapStateToProps = state => {
-    const userId = state.currentUser ? state.currentUser.id : ""
-    return {
-        formData: state.postForm,
-        userId
+
+// mapStateToProps = state => {
+//     const userId = state.currentUser ? state.currentUser.id : ""
+//     return {
+//         formData: state.postForm,
+//         userId
         
-    }
-}
+//     }
+// }
 /* 2. Pass the action creator to redux's connect function
  using either mapDispatchToProps or the shorthand object syntax seen below
 */
 //  dispatch is happening here, use short hand and insert {updatePostForm} to connect function
-export default connect(mapStateToProps, { updatePostForm }) (PostFormWithUi); 
+export default connect( null, { updatePostForm })(PostFormWithUi); 

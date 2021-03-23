@@ -3,9 +3,11 @@ import PostFormWithUi from './PostFormWithUi';
 import { createPost } from '../actions/posts';
 import { connect } from 'react-redux';
 
-const NewPostFormWrapper = ({ history, createPost }) => {
-    
 
+
+
+const NewPostFormWrapper = ({ history, createPost }) => {
+   
     // this can either be props.history or destructure it and use it like below:
     const handleSubmit = (formData, userId) => { 
         // history is a separate object here because we don't want to send history to the backend,

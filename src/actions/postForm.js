@@ -1,7 +1,7 @@
 // synchronouse actions 
 
 export const updatePostForm = (name, value) => {
-    // console.log(name, value)
+    console.log(name, value)
     const formData = { name, value }
     // console.log(formData)
     return {

@@ -9,7 +9,7 @@ const NavBar = ({currentUser}) => {
         
         <div>
             <h1> {currentUser.attributes.group.group} family</h1> 
-            <NavLink exact  activeClassName="active" to="/posts">Family updates </NavLink> 
+            <NavLink exact  activeClassName="active" to="/posts">Family updates | </NavLink> 
             <NavLink exact activeClassName="active"  to="/posts/new">Share an update </NavLink> 
             <Logout/>       
         </div>             
