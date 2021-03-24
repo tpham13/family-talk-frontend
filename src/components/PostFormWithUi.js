@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 
 class PostFormWithUi extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { 
       content: '',
     }
@@ -13,32 +13,37 @@ class PostFormWithUi extends React.Component {
   
 
   handleChange = event => {
+      // const {value, name } = event.target;
       this.setState({
-        content: event.target.value, 
+        [event.target.name]: event.target.value
+        // content: event.target.value, 
       })    
   }
   render() {
     
-    // const content  = this.formData
+    const {content}  = this.state
   return (
     
         <form  onSubmit={event => {
             event.preventDefault();
-            // console.log('postform here');
+           // console.log('postform here');
             // Delete userId argument here b/c we don't need it here. Still  need userId in NewPostForm
             // when creating a post. Don't need userId for edit b/c we're not changing userId
             this.props.handleSubmit(this.state)
+            this.setState({content: ''})
             console.log(this.state)
             }}>
+          <label htmlFor="content">What's on your mind...</label>
           <input
-            type="content" 
+            name="content"
+            type="text" 
             onChange={this.handleChange}
-            value={this.state.content}
+            value={content}
           />
          
           <button
             type="submit"
-            value={this.props.editMode ?  "UpdatePost" : "Create Post"}
+            value={this.props.editMode ?  "UpdatePost" : "Create Post" }
           >
             Share
           </button>
@@ -61,4 +66,4 @@ class PostFormWithUi extends React.Component {
  using either mapDispatchToProps or the shorthand object syntax seen below
 */
 //  dispatch is happening here, use short hand and insert {updatePostForm} to connect function
-export default connect( null, { updatePostForm })(PostFormWithUi); 
+export default PostFormWithUi; 

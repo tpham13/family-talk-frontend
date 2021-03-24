@@ -3,6 +3,7 @@ const posts = (state = [], action) => {
         case "SET_POSTS": 
             return action.posts
         case "ADD_POST": 
+            console.log(state.concat(action.post));
             return state.concat(action.post)
         case "CLEAR_POSTS":
             return []

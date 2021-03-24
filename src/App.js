@@ -27,7 +27,7 @@ class App extends React.Component {
             { loggedIn ? <NavBar location={this.props.location} /> : <Home />}
           </div>
           <div className="sharePost">
-            {loggedIn ? <NewPostFormWrapper location={this.props.location} /> : null}
+            {loggedIn ? <NewPostFormWrapper location={this.props.location} history={this.props.history}/> : null}
           </div>
         
       {/* render can take a function */}

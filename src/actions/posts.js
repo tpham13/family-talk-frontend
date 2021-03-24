@@ -57,7 +57,7 @@ export const getPosts = () => {
 
 // async action creator that return a function that return a promise
 export const createPost = (postData, history) => {
-  console.log(postData)
+  // console.log(postData)
 
   return dispatch => {
     const sendablePostData = { 
@@ -88,7 +88,8 @@ export const createPost = (postData, history) => {
           THEN when I export default posts reducer to my store.js, I add posts which is an array
           */
           dispatch(addPost(response.data))
-          dispatch(resetPostForm())
+          // dispatch(resetPostForm())
+          // debugger
           history.push(`/posts`)
         }
       })

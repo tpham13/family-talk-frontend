@@ -1,27 +1,29 @@
 import React from 'react';
 import PostFormWithUi from './PostFormWithUi';
 import { updatePost, deletePost } from '../actions/posts';
-import { setFormDataForEdit, resetPostForm } from '../actions/postForm'
+import { setFormDataForEdit } from '../actions/postForm'
 import { connect } from 'react-redux';
 
 
 class EditPostFormWrapper extends React.Component {
 
     componentDidMount() {
-        // console.log("in componentDidMount, props are", this.props)
+        console.log("in componentDidMount, props are", this.props);
         this.props.post && this.props.setFormDataForEdit(this.props.post)
     }
 
     componentDidUpdate(prevProps) {
-        // console.log("in componentDidUpdate, props are", prevProps)
+        
         this.props.post && !prevProps.post && 
         this.props.setFormDataForEdit(this.props.post)
+        console.log("in componentDidUpdate, props are", prevProps)
+        console.log("in componentDidUpdate posts are", this.props.post)
     }
     // clear the PostForm once a form is finished updated
-    componentWillUnmount() {
-        // console.log("in componentWillUnmount, props are", this.props)
-        this.props.resetPostForm()
-    }
+    // componentWillUnmount() {
+    //     // console.log("in componentWillUnmount, props are", this.props)
+    //     this.props.resetPostForm()
+    // }
     
     handleSubmit = (formData) => { 
         // console.log("we're in ediPostformWrapper")
@@ -49,5 +51,5 @@ class EditPostFormWrapper extends React.Component {
 
 
 // we fire setFormDataforEdit when we click edit button to edit post: this will populate the existing formData with post content
-export default connect(null, { updatePost, setFormDataForEdit, resetPostForm, deletePost }) (EditPostFormWrapper);
+export default connect(null, { updatePost, setFormDataForEdit, deletePost }) (EditPostFormWrapper);
 
