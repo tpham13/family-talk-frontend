@@ -12,6 +12,7 @@ import NewPostFormWrapper from './components/NewPostFormWrapper.js'
 import EditPostFormWrapper from './components/EditPostFormWrapper.js'
 import PostCard from './components/PostCard.js'
 import Footer from './components/FooterUi.js'
+import PostFormWithUi from './components/PostFormWithUi'
 
 class App extends React.Component {
 
@@ -54,6 +55,7 @@ class App extends React.Component {
                 )
               }
             }/>  
+            
           
           </div>
             </>

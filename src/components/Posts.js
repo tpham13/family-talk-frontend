@@ -3,6 +3,7 @@ import PostCard from './PostCard.js'
 // step 1: grab that post array
 import { connect } from 'react-redux';
 
+
 // Posts is expected to render a bunch of posts
 
 const Posts = props => {

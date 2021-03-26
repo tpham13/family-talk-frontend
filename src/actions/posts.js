@@ -90,7 +90,7 @@ export const createPost = (postData, history) => {
           dispatch(addPost(response.data))
           // dispatch(resetPostForm())
           // debugger
-          history.push(`/posts`)
+          // history.push(`/posts`)
         }
       })
       .catch(console.log)
@@ -119,8 +119,6 @@ export const updatePost = (postData, history) => {
           alert(response.error)
         } else {
           dispatch(updatePostSucess(response.data))
-          // I don't need to reset form here because the React lifecycle method componentWillMount in EditPostFormWrapper
-          // already took care of resetPostForm()
           history.push(`/posts`)
         }
       })

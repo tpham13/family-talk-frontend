@@ -42,7 +42,7 @@ class EditPostFormWrapper extends React.Component {
             const postId = post ? post.id : null
             return <>
             
-            <PostFormWithUi editMode  handleSubmit={this.handleSubmit}/>
+            <PostFormWithUi editMode  handleSubmit={this.handleSubmit} post={post}/>
             <br/>
             <button style={{color:"red"}} onClick={() => deletePost(postId, history)}>Delete post</button>
             </>
