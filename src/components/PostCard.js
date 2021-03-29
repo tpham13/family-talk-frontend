@@ -8,6 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Comments from './Comments.js';
 
 const useStyles = makeStyles({
     root: {
@@ -44,9 +45,11 @@ const PostCard = ({post}) => {
             <CardActions>
                 <Button size="small" color="primary" href="#contained-buttons">
                     <Link to={`/posts/${post.id}/edit`}>Edit</Link>
-                </Button>     
+                </Button>  
+                    
             </CardActions>
 
+            <Comments />
     </Card>
     
     ) : null );

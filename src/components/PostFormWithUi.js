@@ -1,7 +1,4 @@
 import React from 'react';
-import {updatePostForm} from '../actions/postForm.js'
-import { connect } from 'react-redux'
-
 
 class PostFormWithUi extends React.Component {
   constructor(props) {
@@ -12,7 +9,6 @@ class PostFormWithUi extends React.Component {
     }
   }
   
-
   handleChange = event => {
       // const {value, name } = event.target;
       this.setState({
